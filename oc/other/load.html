@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>load &amp; initialize | Pan&#39;s Blog</title>
+    <meta name="description" content="Just playing around">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.f637169d.css" as="style"><link rel="preload" href="/assets/js/app.908dfad3.js" as="script"><link rel="preload" href="/assets/js/52.ef636f45.js" as="script"><link rel="prefetch" href="/assets/js/10.337b1fe3.js"><link rel="prefetch" href="/assets/js/11.fbbc3d23.js"><link rel="prefetch" href="/assets/js/12.85a2c405.js"><link rel="prefetch" href="/assets/js/13.59074305.js"><link rel="prefetch" href="/assets/js/14.966daf17.js"><link rel="prefetch" href="/assets/js/15.ac446f82.js"><link rel="prefetch" href="/assets/js/16.928714ad.js"><link rel="prefetch" href="/assets/js/17.703cf8f6.js"><link rel="prefetch" href="/assets/js/18.613035e7.js"><link rel="prefetch" href="/assets/js/19.9cadccd2.js"><link rel="prefetch" href="/assets/js/2.e9e429c4.js"><link rel="prefetch" href="/assets/js/20.8b804bb6.js"><link rel="prefetch" href="/assets/js/21.93a312f8.js"><link rel="prefetch" href="/assets/js/22.c43fa6cb.js"><link rel="prefetch" href="/assets/js/23.dd7a6de9.js"><link rel="prefetch" href="/assets/js/24.7b66814a.js"><link rel="prefetch" href="/assets/js/25.8c76c392.js"><link rel="prefetch" href="/assets/js/26.22556371.js"><link rel="prefetch" href="/assets/js/27.7cf975c4.js"><link rel="prefetch" href="/assets/js/28.2088bc31.js"><link rel="prefetch" href="/assets/js/29.b328e730.js"><link rel="prefetch" href="/assets/js/3.fc5cd66f.js"><link rel="prefetch" href="/assets/js/30.72707481.js"><link rel="prefetch" href="/assets/js/31.86032cea.js"><link rel="prefetch" href="/assets/js/32.bf03ba96.js"><link rel="prefetch" href="/assets/js/33.eb49a028.js"><link rel="prefetch" href="/assets/js/34.4a07196d.js"><link rel="prefetch" href="/assets/js/35.7a226b76.js"><link rel="prefetch" href="/assets/js/36.db5eec9a.js"><link rel="prefetch" href="/assets/js/37.cdc338c4.js"><link rel="prefetch" href="/assets/js/38.34a35d7d.js"><link rel="prefetch" href="/assets/js/39.695deec3.js"><link rel="prefetch" href="/assets/js/4.7aa51947.js"><link rel="prefetch" href="/assets/js/40.f1dc7d30.js"><link rel="prefetch" href="/assets/js/41.1d34bbf6.js"><link rel="prefetch" href="/assets/js/42.423d3ca5.js"><link rel="prefetch" href="/assets/js/43.d353af94.js"><link rel="prefetch" href="/assets/js/44.de7ee57e.js"><link rel="prefetch" href="/assets/js/45.a6e7ec4a.js"><link rel="prefetch" href="/assets/js/46.2781428a.js"><link rel="prefetch" href="/assets/js/47.12910615.js"><link rel="prefetch" href="/assets/js/48.ec325e20.js"><link rel="prefetch" href="/assets/js/49.7e6b0e34.js"><link rel="prefetch" href="/assets/js/5.34d295cb.js"><link rel="prefetch" href="/assets/js/50.686eceeb.js"><link rel="prefetch" href="/assets/js/51.813c0a41.js"><link rel="prefetch" href="/assets/js/53.4c0b4978.js"><link rel="prefetch" href="/assets/js/54.6f9c7b33.js"><link rel="prefetch" href="/assets/js/55.4fc94690.js"><link rel="prefetch" href="/assets/js/56.1999815f.js"><link rel="prefetch" href="/assets/js/57.4678e399.js"><link rel="prefetch" href="/assets/js/58.60bc5f58.js"><link rel="prefetch" href="/assets/js/59.a600a8bd.js"><link rel="prefetch" href="/assets/js/6.dccabf12.js"><link rel="prefetch" href="/assets/js/60.7064c1b5.js"><link rel="prefetch" href="/assets/js/61.321797c3.js"><link rel="prefetch" href="/assets/js/62.29b63639.js"><link rel="prefetch" href="/assets/js/7.46fb0051.js"><link rel="prefetch" href="/assets/js/8.adc2b779.js"><link rel="prefetch" href="/assets/js/9.c180848b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f637169d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Pan's Blog</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Object-C</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/oc/runtime/" class="nav-link">Runtime</a></li><li class="dropdown-item"><!----> <a href="/oc/kvo/" class="nav-link">KVO</a></li><li class="dropdown-item"><!----> <a href="/oc/runloop/" class="nav-link">RunLoop</a></li><li class="dropdown-item"><!----> <a href="/oc/other/" class="nav-link router-link-active">Other</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/" class="nav-link">Swift4.2</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">C/C++</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/" class="nav-link">C/C++</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Multi-Platform</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Native Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/flutter/" class="nav-link">Flutter</a></li><li class="dropdown-subitem"><a href="/h5/swiftui/" class="nav-link">SwiftUI</a></li><li class="dropdown-subitem"><a href="/h5/reactnative/" class="nav-link">React-native</a></li><li class="dropdown-subitem"><a href="/h5/cordova/" class="nav-link">Cordova</a></li><li class="dropdown-subitem"><a href="/h5/weex/" class="nav-link">Weex</a></li></ul></li><li class="dropdown-item"><h4>Web Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/html/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/h5/css/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/h5/js/" class="nav-link">JS</a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/pan372728544" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Object-C</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/oc/runtime/" class="nav-link">Runtime</a></li><li class="dropdown-item"><!----> <a href="/oc/kvo/" class="nav-link">KVO</a></li><li class="dropdown-item"><!----> <a href="/oc/runloop/" class="nav-link">RunLoop</a></li><li class="dropdown-item"><!----> <a href="/oc/other/" class="nav-link router-link-active">Other</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/" class="nav-link">Swift4.2</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">C/C++</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/" class="nav-link">C/C++</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Multi-Platform</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Native Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/flutter/" class="nav-link">Flutter</a></li><li class="dropdown-subitem"><a href="/h5/swiftui/" class="nav-link">SwiftUI</a></li><li class="dropdown-subitem"><a href="/h5/reactnative/" class="nav-link">React-native</a></li><li class="dropdown-subitem"><a href="/h5/cordova/" class="nav-link">Cordova</a></li><li class="dropdown-subitem"><a href="/h5/weex/" class="nav-link">Weex</a></li></ul></li><li class="dropdown-item"><h4>Web Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/html/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/h5/css/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/h5/js/" class="nav-link">JS</a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/pan372728544" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/oc/other/" class="sidebar-link">排序算法</a></li><li><a href="/oc/other/JLRouter.html" class="sidebar-link">JLRouter</a></li><li><a href="/oc/other/git.html" class="sidebar-link">Git使用</a></li><li><a href="/oc/other/aframework.html" class="sidebar-link">静态库</a></li><li><a href="/oc/other/copy.html" class="sidebar-link">深拷贝和浅拷贝</a></li><li><a href="/oc/other/Jenkins.html" class="sidebar-link">Jenkins 在MAC上的配置使用</a></li><li><a href="/oc/other/pod.html" class="sidebar-link">pod</a></li><li><a href="/oc/other/spec.html" class="sidebar-link">创建私有的Spec Repo</a></li><li><a href="/oc/other/package.html" class="sidebar-link">自动打包命令</a></li><li><a href="/oc/other/autoPackage.html" class="sidebar-link">MAC下使用Jekins自动打包iOS项目</a></li><li><a href="/oc/other/spec22.html" class="sidebar-link">创建私有库的索引</a></li><li><a href="/oc/other/time.html" class="sidebar-link">应用启用时间</a></li><li><a href="/oc/other/load.html" class="active sidebar-link">load &amp; initialize</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/oc/other/load.html#一、-load方法" class="sidebar-link">一、+load方法</a></li><li class="sidebar-sub-header"><a href="/oc/other/load.html#二、-initialize方法" class="sidebar-link">二、+initialize方法</a></li></ul></li></ul> </div> <div class="page"> <div class="content"><h1 id="load-initialize"><a href="#load-initialize" aria-hidden="true" class="header-anchor">#</a> load &amp; initialize</h1> <h2 id="一、-load方法"><a href="#一、-load方法" aria-hidden="true" class="header-anchor">#</a> 一、+load方法</h2> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>+load方法会在runtime加载类、分类时调用</p> <p>每个类、分类的+load，在程序运行过程中只调用一次</p> <p>调用顺序:</p> <ol><li><p>先调用类的+load
+按照编译先后顺序调用（先编译，先调用）
+调用子类的+load之前会先调用父类的+load</p></li> <li><p>再调用分类的+load
+按照编译先后顺序调用（先编译，先调用）</p></li></ol> <p>objc4源码解读过程：objc-os.mm</p> <p>_objc_init</p> <p>load_images</p> <p>prepare_load_methods</p> <p>schedule_class_load</p> <p>add_class_to_loadable_list</p> <p>add_category_to_loadable_list</p> <p>call_load_methods</p> <p>call_class_loads</p> <p>call_category_loads</p> <p>(*load_method)(cls, SEL_load)</p> <p>+load方法是根据方法地址直接调用，并不是经过objc_msgSend函数调用</p></div> <p>示例：</p> <p>Student继承Teacher，Teacher继承Perosn。Person有两个分类，Person (Category1)，Person (Category2)。都实现load方法.（Category1在Category2的上面）</p> <p>执行结果：</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token builtin">Person</span><span class="token operator">-</span>load
+<span class="token builtin">Teacher</span><span class="token operator">-</span>load
+<span class="token builtin">Student</span><span class="token operator">-</span>load
+<span class="token builtin">Person</span> <span class="token punctuation">(</span><span class="token builtin">Category1</span><span class="token punctuation">)</span><span class="token operator">-</span>load
+<span class="token builtin">Person</span> <span class="token punctuation">(</span><span class="token builtin">Category2</span><span class="token punctuation">)</span><span class="token operator">-</span>load
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>如果把 Category2在Category1的上面，执行顺序会发生变化</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token builtin">Person</span><span class="token operator">-</span>load
+<span class="token builtin">Teacher</span><span class="token operator">-</span>load
+<span class="token builtin">Student</span><span class="token operator">-</span>load
+<span class="token builtin">Person</span> <span class="token punctuation">(</span><span class="token builtin">Category2</span><span class="token punctuation">)</span><span class="token operator">-</span>load
+<span class="token builtin">Person</span> <span class="token punctuation">(</span><span class="token builtin">Category1</span><span class="token punctuation">)</span><span class="token operator">-</span>load
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>源码探究：
+在objc4-750中查看。
+查找到objc-os.mm 文件，入口在如下代码：</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* _objc_init
+* Bootstrap initialization. Registers our image notifier with dyld.
+* Called by libSystem BEFORE library initialization time
+**********************************************************************/</span>
+
+void <span class="token function">_objc_init</span><span class="token punctuation">(</span>void<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> bool initialized <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>initialized<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    initialized <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// fixme defer initialization until an objc-using image is found?</span>
+    <span class="token function">environ_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">tls_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">static_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">lock_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exception_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">_dyld_objc_notify_register</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>map_images<span class="token punctuation">,</span> load_images<span class="token punctuation">,</span> unmap_image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>找到load_images</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* load_images
+* Process +load in the given images which are being mapped in by dyld.
+*
+* Locking: write-locks runtimeLock and loadMethodLock
+**********************************************************************/</span>
+extern bool <span class="token function">hasLoadMethods</span><span class="token punctuation">(</span>const headerType <span class="token operator">*</span>mhdr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+extern void <span class="token function">prepare_load_methods</span><span class="token punctuation">(</span>const headerType <span class="token operator">*</span>mhdr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+void
+<span class="token function">load_images</span><span class="token punctuation">(</span>const char <span class="token operator">*</span>path __unused<span class="token punctuation">,</span> const <span class="token keyword">struct</span> mach_header <span class="token operator">*</span>mh<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Return without taking locks if there are no +load methods here.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">hasLoadMethods</span><span class="token punctuation">(</span><span class="token punctuation">(</span>const headerType <span class="token operator">*</span><span class="token punctuation">)</span>mh<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+    recursive_mutex_locker_t <span class="token function">lock</span><span class="token punctuation">(</span>loadMethodLock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Discover load methods</span>
+    <span class="token punctuation">{</span>
+        mutex_locker_t <span class="token function">lock2</span><span class="token punctuation">(</span>runtimeLock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">prepare_load_methods</span><span class="token punctuation">(</span><span class="token punctuation">(</span>const headerType <span class="token operator">*</span><span class="token punctuation">)</span>mh<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Call +load methods (without runtimeLock - re-entrant)</span>
+    <span class="token function">call_load_methods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><p>找到call_load_methods()</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* call_load_methods
+* Call all pending class and category +load methods.
+* Class +load methods are called superclass-first. 
+* Category +load methods are not called until after the parent class's +load.
+* 
+* This method must be RE-ENTRANT, because a +load could trigger 
+* more image mapping. In addition, the superclass-first ordering 
+* must be preserved in the face of re-entrant calls. Therefore, 
+* only the OUTERMOST call of this function will do anything, and 
+* that call will handle all loadable classes, even those generated 
+* while it was running.
+*
+* The sequence below preserves +load ordering in the face of 
+* image loading during a +load, and make sure that no 
+* +load method is forgotten because it was added during 
+* a +load call.
+* Sequence:
+* 1. Repeatedly call class +loads until there aren't any more
+* 2. Call category +loads ONCE.
+* 3. Run more +loads if:
+*    (a) there are more classes to load, OR
+*    (b) there are some potential category +loads that have 
+*        still never been attempted.
+* Category +loads are only run once to ensure &quot;parent class first&quot; 
+* ordering, even if a category +load triggers a new loadable class 
+* and a new loadable category attached to that class. 
+*
+* Locking: loadMethodLock must be held by the caller 
+*   All other locks must not be held.
+**********************************************************************/</span>
+void <span class="token function">call_load_methods</span><span class="token punctuation">(</span>void<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> bool loading <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
+    bool more_categories<span class="token punctuation">;</span>
+
+    loadMethodLock<span class="token punctuation">.</span><span class="token function">assertLocked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Re-entrant calls do nothing; the outermost call will finish the job.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>loading<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    loading <span class="token operator">=</span> <span class="token constant">YES</span><span class="token punctuation">;</span>
+
+    void <span class="token operator">*</span>pool <span class="token operator">=</span> <span class="token function">objc_autoreleasePoolPush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">do</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1. Repeatedly call class +loads until there aren't any more</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>loadable_classes_used <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">call_class_loads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 2. Call category +loads ONCE</span>
+        more_categories <span class="token operator">=</span> <span class="token function">call_category_loads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3. Run more +loads if there are classes OR more untried categories</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>loadable_classes_used <span class="token operator">&gt;</span> <span class="token number">0</span>  <span class="token operator">||</span>  more_categories<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">objc_autoreleasePoolPop</span><span class="token punctuation">(</span>pool<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    loading <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br></div></div><p>可以看到1中先调用类的loads 然后2中在调用分类的load。
+然后在看load分类的方法</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* call_category_loads
+* Call some pending category +load methods.
+* The parent class of the +load-implementing categories has all of 
+*   its categories attached, in case some are lazily waiting for +initalize.
+* Don't call +load unless the parent class is connected.
+* If new categories become loadable, +load is NOT called, and they 
+*   are added to the end of the loadable list, and we return TRUE.
+* Return FALSE if no new categories became loadable.
+*
+* Called only by call_load_methods().
+**********************************************************************/</span>
+<span class="token keyword">static</span> bool <span class="token function">call_category_loads</span><span class="token punctuation">(</span>void<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    int i<span class="token punctuation">,</span> shift<span class="token punctuation">;</span>
+    bool new_categories_added <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Detach current loadable list.</span>
+    <span class="token keyword">struct</span> loadable_category <span class="token operator">*</span>cats <span class="token operator">=</span> loadable_categories<span class="token punctuation">;</span>
+    int used <span class="token operator">=</span> loadable_categories_used<span class="token punctuation">;</span>
+    int allocated <span class="token operator">=</span> loadable_categories_allocated<span class="token punctuation">;</span>
+    loadable_categories <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+    loadable_categories_allocated <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    loadable_categories_used <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Call all +loads for the detached list.</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> used<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">Category</span> cat <span class="token operator">=</span> cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cat<span class="token punctuation">;</span>
+        load_method_t load_method <span class="token operator">=</span> <span class="token punctuation">(</span>load_method_t<span class="token punctuation">)</span>cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>method<span class="token punctuation">;</span>
+        <span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cat<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+
+        cls <span class="token operator">=</span> <span class="token function">_category_getClass</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cls  <span class="token operator">&amp;&amp;</span>  cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isLoadable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">PrintLoading</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">_objc_inform</span><span class="token punctuation">(</span><span class="token string">&quot;LOAD: +[%s(%s) load]\n&quot;</span><span class="token punctuation">,</span> 
+                             cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nameForLogging</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+                             <span class="token function">_category_getName</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token punctuation">(</span><span class="token operator">*</span>load_method<span class="token punctuation">)</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token builtin">SEL_load</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cat <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Compact detached list (order-preserving)</span>
+    shift <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> used<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cats<span class="token punctuation">[</span>i<span class="token operator">-</span>shift<span class="token punctuation">]</span> <span class="token operator">=</span> cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            shift<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    used <span class="token operator">-</span><span class="token operator">=</span> shift<span class="token punctuation">;</span>
+
+    <span class="token comment">// Copy any new +load candidates from the new list to the detached list.</span>
+    new_categories_added <span class="token operator">=</span> <span class="token punctuation">(</span>loadable_categories_used <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> loadable_categories_used<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>used <span class="token operator">==</span> allocated<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            allocated <span class="token operator">=</span> allocated<span class="token operator">*</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">16</span><span class="token punctuation">;</span>
+            cats <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> loadable_category <span class="token operator">*</span><span class="token punctuation">)</span>
+                <span class="token function">realloc</span><span class="token punctuation">(</span>cats<span class="token punctuation">,</span> allocated <span class="token operator">*</span>
+                                  <span class="token function">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> loadable_category<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cats<span class="token punctuation">[</span>used<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> loadable_categories<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Destroy the new list.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>loadable_categories<span class="token punctuation">)</span> <span class="token function">free</span><span class="token punctuation">(</span>loadable_categories<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Reattach the (now augmented) detached list. </span>
+    <span class="token comment">// But if there's nothing left to load, destroy the list.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>used<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        loadable_categories <span class="token operator">=</span> cats<span class="token punctuation">;</span>
+        loadable_categories_used <span class="token operator">=</span> used<span class="token punctuation">;</span>
+        loadable_categories_allocated <span class="token operator">=</span> allocated<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cats<span class="token punctuation">)</span> <span class="token function">free</span><span class="token punctuation">(</span>cats<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        loadable_categories <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+        loadable_categories_used <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        loadable_categories_allocated <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">PrintLoading</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>loadable_categories_used <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">_objc_inform</span><span class="token punctuation">(</span><span class="token string">&quot;LOAD: %d categories still waiting for +load\n&quot;</span><span class="token punctuation">,</span>
+                         loadable_categories_used<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> new_categories_added<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br></div></div><p>可以看到</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code> <span class="token comment">// Call all +loads for the detached list.</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> used<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">Category</span> cat <span class="token operator">=</span> cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cat<span class="token punctuation">;</span>
+        load_method_t load_method <span class="token operator">=</span> <span class="token punctuation">(</span>load_method_t<span class="token punctuation">)</span>cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>method<span class="token punctuation">;</span>
+        <span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cat<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+
+        cls <span class="token operator">=</span> <span class="token function">_category_getClass</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cls  <span class="token operator">&amp;&amp;</span>  cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isLoadable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">PrintLoading</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">_objc_inform</span><span class="token punctuation">(</span><span class="token string">&quot;LOAD: +[%s(%s) load]\n&quot;</span><span class="token punctuation">,</span> 
+                             cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nameForLogging</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+                             <span class="token function">_category_getName</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token punctuation">(</span><span class="token operator">*</span>load_method<span class="token punctuation">)</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token builtin">SEL_load</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>cat <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>在for循环中，是按照顺序从i=0开始查找load方法然后用 (*load_method)(cls, SEL_load)去执行的。</p> <h2 id="二、-initialize方法"><a href="#二、-initialize方法" aria-hidden="true" class="header-anchor">#</a> 二、+initialize方法</h2> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>+initialize方法会在类第一次接收到消息时调用</p> <p>调用顺序</p> <p>先调用父类的+initialize，再调用子类的+initialize
+(先初始化父类，再初始化子类，每个类只会初始化1次)</p> <p>+initialize和+load的很大区别是，+initialize是通过objc_msgSend进行调用的，所以有以下特点
+如果子类没有实现+initialize，会调用父类的+initialize（所以父类的+initialize可能会被调用多次）
+如果分类实现了+initialize，就覆盖类本身的+initialize调用</p> <p>objc4源码解读过程</p> <p>objc-msg-arm64.s</p> <p>objc_msgSend</p> <p>objc-runtime-new.mm</p> <p>class_getInstanceMethod</p> <p>lookUpImpOrNil</p> <p>lookUpImpOrForward</p> <p>_class_initialize</p> <p>callInitialize</p> <p>objc_msgSend(cls, SEL_initialize)</p></div> <p>示例：</p> <p>Student继承Teacher，Teacher继承Perosn。Person有两个分类，Person (Category1)，Person (Category2)。都实现initialize方法.（Category1在Category2的上面）.
+在main函数中执行 [Student alloc];</p> <p>执行结果：</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code>
+<span class="token builtin">Person</span> <span class="token punctuation">(</span><span class="token builtin">Category1</span><span class="token punctuation">)</span><span class="token operator">-</span>initialize
+<span class="token builtin">Teacher</span><span class="token operator">-</span>initialize
+<span class="token builtin">Student</span><span class="token operator">-</span>initialize 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>如果把Student中initialize方法注释掉在执行。
+执行结果：</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token builtin">Person</span> <span class="token punctuation">(</span><span class="token builtin">Category1</span><span class="token punctuation">)</span><span class="token operator">-</span>initialize
+<span class="token builtin">Teacher</span><span class="token operator">-</span>initialize
+<span class="token builtin">Teacher</span><span class="token operator">-</span>initialize
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>找到class_getInstanceMethod方法</p> <p>源码解析：</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* class_getInstanceMethod.  Return the instance method for the
+* specified class and selector.
+**********************************************************************/</span>
+<span class="token builtin">Method</span> <span class="token function">class_getInstanceMethod</span><span class="token punctuation">(</span><span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">,</span> <span class="token constant">SEL</span> sel<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cls  <span class="token operator">||</span>  <span class="token operator">!</span>sel<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// This deliberately avoids +initialize because it historically did so.</span>
+
+    <span class="token comment">// This implementation is a bit weird because it's the only place that </span>
+    <span class="token comment">// wants a Method instead of an IMP.</span>
+
+#warning fixme build and search caches
+        
+    <span class="token comment">// Search method lists, try method resolver, etc.</span>
+    <span class="token function">lookUpImpOrNil</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> <span class="token constant">nil</span><span class="token punctuation">,</span> 
+                   <span class="token constant">NO</span><span class="token comment">/*initialize*/</span><span class="token punctuation">,</span> <span class="token constant">NO</span><span class="token comment">/*cache*/</span><span class="token punctuation">,</span> <span class="token constant">YES</span><span class="token comment">/*resolver*/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+#warning fixme build and search caches
+
+    <span class="token keyword">return</span> <span class="token function">_class_getMethod</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>然后查找到lookUpImpOrNil</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* lookUpImpOrNil.
+* Like lookUpImpOrForward, but returns nil instead of _objc_msgForward_impcache
+**********************************************************************/</span>
+<span class="token constant">IMP</span> <span class="token function">lookUpImpOrNil</span><span class="token punctuation">(</span><span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">,</span> <span class="token constant">SEL</span> sel<span class="token punctuation">,</span> id inst<span class="token punctuation">,</span> 
+                   bool initialize<span class="token punctuation">,</span> bool cache<span class="token punctuation">,</span> bool resolver<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token constant">IMP</span> imp <span class="token operator">=</span> <span class="token function">lookUpImpOrForward</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> inst<span class="token punctuation">,</span> initialize<span class="token punctuation">,</span> cache<span class="token punctuation">,</span> resolver<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>imp <span class="token operator">==</span> _objc_msgForward_impcache<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> imp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>继续查找到lookUpImpOrForward</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* lookUpImpOrForward.
+* The standard IMP lookup. 
+* initialize==NO tries to avoid +initialize (but sometimes fails)
+* cache==NO skips optimistic unlocked lookup (but uses cache elsewhere)
+* Most callers should use initialize==YES and cache==YES.
+* inst is an instance of cls or a subclass thereof, or nil if none is known. 
+*   If cls is an un-initialized metaclass then a non-nil inst is faster.
+* May return _objc_msgForward_impcache. IMPs destined for external use 
+*   must be converted to _objc_msgForward or _objc_msgForward_stret.
+*   If you don't want forwarding at all, use lookUpImpOrNil() instead.
+**********************************************************************/</span>
+<span class="token constant">IMP</span> <span class="token function">lookUpImpOrForward</span><span class="token punctuation">(</span><span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">,</span> <span class="token constant">SEL</span> sel<span class="token punctuation">,</span> id inst<span class="token punctuation">,</span> 
+                       bool initialize<span class="token punctuation">,</span> bool cache<span class="token punctuation">,</span> bool resolver<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token constant">IMP</span> imp <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+    bool triedResolver <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
+
+    runtimeLock<span class="token punctuation">.</span><span class="token function">assertUnlocked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Optimistic cache lookup</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cache<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        imp <span class="token operator">=</span> <span class="token function">cache_getImp</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>imp<span class="token punctuation">)</span> <span class="token keyword">return</span> imp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// runtimeLock is held during isRealized and isInitialized checking</span>
+    <span class="token comment">// to prevent races against concurrent realization.</span>
+
+    <span class="token comment">// runtimeLock is held during method search to make</span>
+    <span class="token comment">// method-lookup + cache-fill atomic with respect to method addition.</span>
+    <span class="token comment">// Otherwise, a category could be added but ignored indefinitely because</span>
+    <span class="token comment">// the cache was re-filled with the old value after the cache flush on</span>
+    <span class="token comment">// behalf of the category.</span>
+
+    runtimeLock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">checkIsKnownClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isRealized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">realizeClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>initialize  <span class="token operator">&amp;&amp;</span>  <span class="token operator">!</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        runtimeLock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _class_initialize <span class="token punctuation">(</span><span class="token function">_class_getNonMetaClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> inst<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        runtimeLock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// If sel == initialize, _class_initialize will send +initialize and </span>
+        <span class="token comment">// then the messenger will send +initialize again after this </span>
+        <span class="token comment">// procedure finishes. Of course, if this is not being called </span>
+        <span class="token comment">// from the messenger then it won't happen. 2778172</span>
+    <span class="token punctuation">}</span>
+
+    
+ retry<span class="token punctuation">:</span>    
+    runtimeLock<span class="token punctuation">.</span><span class="token function">assertLocked</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Try this class's cache.</span>
+
+    imp <span class="token operator">=</span> <span class="token function">cache_getImp</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>imp<span class="token punctuation">)</span> goto done<span class="token punctuation">;</span>
+
+    <span class="token comment">// Try this class's method lists.</span>
+    <span class="token punctuation">{</span>
+        <span class="token builtin">Method</span> meth <span class="token operator">=</span> <span class="token function">getMethodNoSuper_nolock</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>meth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">log_and_fill_cache</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> meth<span class="token operator">-</span><span class="token operator">&gt;</span>imp<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> inst<span class="token punctuation">,</span> cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            imp <span class="token operator">=</span> meth<span class="token operator">-</span><span class="token operator">&gt;</span>imp<span class="token punctuation">;</span>
+            goto done<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Try superclass caches and method lists.</span>
+    <span class="token punctuation">{</span>
+        unsigned attempts <span class="token operator">=</span> <span class="token function">unreasonableClassCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">Class</span> <span class="token class-name">curClass</span> <span class="token operator">=</span> cls<span class="token operator">-</span><span class="token operator">&gt;</span>superclass<span class="token punctuation">;</span>
+             curClass <span class="token operator">!=</span> <span class="token constant">nil</span><span class="token punctuation">;</span>
+             curClass <span class="token operator">=</span> curClass<span class="token operator">-</span><span class="token operator">&gt;</span>superclass<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// Halt if there is a cycle in the superclass chain.</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">--</span>attempts <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">_objc_fatal</span><span class="token punctuation">(</span><span class="token string">&quot;Memory corruption in class list.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token comment">// Superclass cache.</span>
+            imp <span class="token operator">=</span> <span class="token function">cache_getImp</span><span class="token punctuation">(</span>curClass<span class="token punctuation">,</span> sel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>imp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>imp <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token constant">IMP</span><span class="token punctuation">)</span>_objc_msgForward_impcache<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// Found the method in a superclass. Cache it in this class.</span>
+                    <span class="token function">log_and_fill_cache</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> imp<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> inst<span class="token punctuation">,</span> curClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    goto done<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// Found a forward:: entry in a superclass.</span>
+                    <span class="token comment">// Stop searching, but don't cache yet; call method </span>
+                    <span class="token comment">// resolver for this class first.</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            
+            <span class="token comment">// Superclass method list.</span>
+            <span class="token builtin">Method</span> meth <span class="token operator">=</span> <span class="token function">getMethodNoSuper_nolock</span><span class="token punctuation">(</span>curClass<span class="token punctuation">,</span> sel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>meth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">log_and_fill_cache</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> meth<span class="token operator">-</span><span class="token operator">&gt;</span>imp<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> inst<span class="token punctuation">,</span> curClass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                imp <span class="token operator">=</span> meth<span class="token operator">-</span><span class="token operator">&gt;</span>imp<span class="token punctuation">;</span>
+                goto done<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// No implementation found. Try method resolver once.</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>resolver  <span class="token operator">&amp;&amp;</span>  <span class="token operator">!</span>triedResolver<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        runtimeLock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">_class_resolveMethod</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> inst<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        runtimeLock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Don't cache the result; we don't hold the lock so it may have </span>
+        <span class="token comment">// changed already. Re-do the search from scratch instead.</span>
+        triedResolver <span class="token operator">=</span> <span class="token constant">YES</span><span class="token punctuation">;</span>
+        goto retry<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// No implementation found, and method resolver didn't help. </span>
+    <span class="token comment">// Use forwarding.</span>
+
+    imp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token constant">IMP</span><span class="token punctuation">)</span>_objc_msgForward_impcache<span class="token punctuation">;</span>
+    <span class="token function">cache_fill</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> sel<span class="token punctuation">,</span> imp<span class="token punctuation">,</span> inst<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ done<span class="token punctuation">:</span>
+    runtimeLock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> imp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br></div></div><p>继续查找_class_initialize.</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">/***********************************************************************
+* class_initialize.  Send the '+initialize' message on demand to any
+* uninitialized class. Force initialization of superclasses first.
+**********************************************************************/</span>
+void <span class="token function">_class_initialize</span><span class="token punctuation">(</span><span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">!</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isMetaClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token builtin">Class</span> <span class="token class-name">supercls</span><span class="token punctuation">;</span>
+    bool reallyInitialize <span class="token operator">=</span> <span class="token constant">NO</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Make sure super is done initializing BEFORE beginning to initialize cls.</span>
+    <span class="token comment">// See note about deadlock above.</span>
+    supercls <span class="token operator">=</span> cls<span class="token operator">-</span><span class="token operator">&gt;</span>superclass<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>supercls  <span class="token operator">&amp;&amp;</span>  <span class="token operator">!</span>supercls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">_class_initialize</span><span class="token punctuation">(</span>supercls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// Try to atomically set CLS_INITIALIZING.</span>
+    <span class="token punctuation">{</span>
+        monitor_locker_t <span class="token function">lock</span><span class="token punctuation">(</span>classInitLock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitializing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setInitializing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            reallyInitialize <span class="token operator">=</span> <span class="token constant">YES</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>reallyInitialize<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// We successfully set the CLS_INITIALIZING bit. Initialize the class.</span>
+        
+        <span class="token comment">// Record that we're initializing this class so we can message it.</span>
+        <span class="token function">_setThisThreadIsInitializingClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">MultithreadedForkChild</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// LOL JK we don't really call +initialize methods after fork().</span>
+            <span class="token function">performForkChildInitialize</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> supercls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment">// Send the +initialize message.</span>
+        <span class="token comment">// Note that +initialize is sent to the superclass (again) if </span>
+        <span class="token comment">// this class doesn't implement +initialize. 2157218</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">PrintInitializing</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">_objc_inform</span><span class="token punctuation">(</span><span class="token string">&quot;INITIALIZE: thread %p: calling +[%s initialize]&quot;</span><span class="token punctuation">,</span>
+                         <span class="token function">pthread_self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nameForLogging</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// Exceptions: A +initialize call that throws an exception </span>
+        <span class="token comment">// is deemed to be a complete and successful +initialize.</span>
+        <span class="token comment">//</span>
+        <span class="token comment">// Only __OBJC2__ adds these handlers. !__OBJC2__ has a</span>
+        <span class="token comment">// bootstrapping problem of this versus CF's call to</span>
+        <span class="token comment">// objc_exception_set_functions().</span>
+#<span class="token keyword">if</span> __OBJC2__
+        @<span class="token keyword">try</span>
+#endif
+        <span class="token punctuation">{</span>
+            <span class="token function">callInitialize</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">PrintInitializing</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">_objc_inform</span><span class="token punctuation">(</span><span class="token string">&quot;INITIALIZE: thread %p: finished +[%s initialize]&quot;</span><span class="token punctuation">,</span>
+                             <span class="token function">pthread_self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nameForLogging</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+#<span class="token keyword">if</span> __OBJC2__
+        @<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">PrintInitializing</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">_objc_inform</span><span class="token punctuation">(</span><span class="token string">&quot;INITIALIZE: thread %p: +[%s initialize] &quot;</span>
+                             <span class="token string">&quot;threw an exception&quot;</span><span class="token punctuation">,</span>
+                             <span class="token function">pthread_self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nameForLogging</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            @<span class="token keyword">throw</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        @finally
+#endif
+        <span class="token punctuation">{</span>
+            <span class="token comment">// Done initializing.</span>
+            <span class="token function">lockAndFinishInitializing</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> supercls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitializing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// We couldn't set INITIALIZING because INITIALIZING was already set.</span>
+        <span class="token comment">// If this thread set it earlier, continue normally.</span>
+        <span class="token comment">// If some other thread set it, block until initialize is done.</span>
+        <span class="token comment">// It's ok if INITIALIZING changes to INITIALIZED while we're here, </span>
+        <span class="token comment">//   because we safely check for INITIALIZED inside the lock </span>
+        <span class="token comment">//   before blocking.</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">_thisThreadIsInitializingClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token builtin">MultithreadedForkChild</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">waitForInitializeToComplete</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// We're on the child side of fork(), facing a class that</span>
+            <span class="token comment">// was initializing by some other thread when fork() was called.</span>
+            <span class="token function">_setThisThreadIsInitializingClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">performForkChildInitialize</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> supercls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>cls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Set CLS_INITIALIZING failed because someone else already </span>
+        <span class="token comment">//   initialized the class. Continue normally.</span>
+        <span class="token comment">// NOTE this check must come AFTER the ISINITIALIZING case.</span>
+        <span class="token comment">// Otherwise: Another thread is initializing this class. ISINITIALIZED </span>
+        <span class="token comment">//   is false. Skip this clause. Then the other thread finishes </span>
+        <span class="token comment">//   initialization and sets INITIALIZING=no and INITIALIZED=yes. </span>
+        <span class="token comment">//   Skip the ISINITIALIZING clause. Die horribly.</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// We shouldn't be here. </span>
+        <span class="token function">_objc_fatal</span><span class="token punctuation">(</span><span class="token string">&quot;thread-safe class init in objc runtime is buggy!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br></div></div><p>其中,县查找父类的实现</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code>    supercls <span class="token operator">=</span> cls<span class="token operator">-</span><span class="token operator">&gt;</span>superclass<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>supercls  <span class="token operator">&amp;&amp;</span>  <span class="token operator">!</span>supercls<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isInitialized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">_class_initialize</span><span class="token punctuation">(</span>supercls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>下面是调用</p> <div class="language-swift line-numbers-mode"><pre class="language-swift"><code>void <span class="token function">callInitialize</span><span class="token punctuation">(</span><span class="token builtin">Class</span> <span class="token class-name">cls</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">void</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token builtin">Class</span><span class="token punctuation">,</span> <span class="token constant">SEL</span><span class="token punctuation">)</span><span class="token punctuation">)</span>objc_msgSend<span class="token punctuation">)</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> <span class="token builtin">SEL_initialize</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">asm</span><span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">3/12/2019, 1:51:08 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/oc/other/time.html" class="prev">
+          应用启用时间
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.908dfad3.js" defer></script><script src="/assets/js/52.ef636f45.js" defer></script>
+  </body>
+</html>

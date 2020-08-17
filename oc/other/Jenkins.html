@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jenkins 在MAC上的配置使用 | Pan&#39;s Blog</title>
+    <meta name="description" content="Just playing around">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.f637169d.css" as="style"><link rel="preload" href="/assets/js/app.908dfad3.js" as="script"><link rel="preload" href="/assets/js/48.ec325e20.js" as="script"><link rel="prefetch" href="/assets/js/10.337b1fe3.js"><link rel="prefetch" href="/assets/js/11.fbbc3d23.js"><link rel="prefetch" href="/assets/js/12.85a2c405.js"><link rel="prefetch" href="/assets/js/13.59074305.js"><link rel="prefetch" href="/assets/js/14.966daf17.js"><link rel="prefetch" href="/assets/js/15.ac446f82.js"><link rel="prefetch" href="/assets/js/16.928714ad.js"><link rel="prefetch" href="/assets/js/17.703cf8f6.js"><link rel="prefetch" href="/assets/js/18.613035e7.js"><link rel="prefetch" href="/assets/js/19.9cadccd2.js"><link rel="prefetch" href="/assets/js/2.e9e429c4.js"><link rel="prefetch" href="/assets/js/20.8b804bb6.js"><link rel="prefetch" href="/assets/js/21.93a312f8.js"><link rel="prefetch" href="/assets/js/22.c43fa6cb.js"><link rel="prefetch" href="/assets/js/23.dd7a6de9.js"><link rel="prefetch" href="/assets/js/24.7b66814a.js"><link rel="prefetch" href="/assets/js/25.8c76c392.js"><link rel="prefetch" href="/assets/js/26.22556371.js"><link rel="prefetch" href="/assets/js/27.7cf975c4.js"><link rel="prefetch" href="/assets/js/28.2088bc31.js"><link rel="prefetch" href="/assets/js/29.b328e730.js"><link rel="prefetch" href="/assets/js/3.fc5cd66f.js"><link rel="prefetch" href="/assets/js/30.72707481.js"><link rel="prefetch" href="/assets/js/31.86032cea.js"><link rel="prefetch" href="/assets/js/32.bf03ba96.js"><link rel="prefetch" href="/assets/js/33.eb49a028.js"><link rel="prefetch" href="/assets/js/34.4a07196d.js"><link rel="prefetch" href="/assets/js/35.7a226b76.js"><link rel="prefetch" href="/assets/js/36.db5eec9a.js"><link rel="prefetch" href="/assets/js/37.cdc338c4.js"><link rel="prefetch" href="/assets/js/38.34a35d7d.js"><link rel="prefetch" href="/assets/js/39.695deec3.js"><link rel="prefetch" href="/assets/js/4.7aa51947.js"><link rel="prefetch" href="/assets/js/40.f1dc7d30.js"><link rel="prefetch" href="/assets/js/41.1d34bbf6.js"><link rel="prefetch" href="/assets/js/42.423d3ca5.js"><link rel="prefetch" href="/assets/js/43.d353af94.js"><link rel="prefetch" href="/assets/js/44.de7ee57e.js"><link rel="prefetch" href="/assets/js/45.a6e7ec4a.js"><link rel="prefetch" href="/assets/js/46.2781428a.js"><link rel="prefetch" href="/assets/js/47.12910615.js"><link rel="prefetch" href="/assets/js/49.7e6b0e34.js"><link rel="prefetch" href="/assets/js/5.34d295cb.js"><link rel="prefetch" href="/assets/js/50.686eceeb.js"><link rel="prefetch" href="/assets/js/51.813c0a41.js"><link rel="prefetch" href="/assets/js/52.ef636f45.js"><link rel="prefetch" href="/assets/js/53.4c0b4978.js"><link rel="prefetch" href="/assets/js/54.6f9c7b33.js"><link rel="prefetch" href="/assets/js/55.4fc94690.js"><link rel="prefetch" href="/assets/js/56.1999815f.js"><link rel="prefetch" href="/assets/js/57.4678e399.js"><link rel="prefetch" href="/assets/js/58.60bc5f58.js"><link rel="prefetch" href="/assets/js/59.a600a8bd.js"><link rel="prefetch" href="/assets/js/6.dccabf12.js"><link rel="prefetch" href="/assets/js/60.7064c1b5.js"><link rel="prefetch" href="/assets/js/61.321797c3.js"><link rel="prefetch" href="/assets/js/62.29b63639.js"><link rel="prefetch" href="/assets/js/7.46fb0051.js"><link rel="prefetch" href="/assets/js/8.adc2b779.js"><link rel="prefetch" href="/assets/js/9.c180848b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f637169d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Pan's Blog</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Object-C</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/oc/runtime/" class="nav-link">Runtime</a></li><li class="dropdown-item"><!----> <a href="/oc/kvo/" class="nav-link">KVO</a></li><li class="dropdown-item"><!----> <a href="/oc/runloop/" class="nav-link">RunLoop</a></li><li class="dropdown-item"><!----> <a href="/oc/other/" class="nav-link router-link-active">Other</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/" class="nav-link">Swift4.2</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">C/C++</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/" class="nav-link">C/C++</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Multi-Platform</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Native Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/flutter/" class="nav-link">Flutter</a></li><li class="dropdown-subitem"><a href="/h5/swiftui/" class="nav-link">SwiftUI</a></li><li class="dropdown-subitem"><a href="/h5/reactnative/" class="nav-link">React-native</a></li><li class="dropdown-subitem"><a href="/h5/cordova/" class="nav-link">Cordova</a></li><li class="dropdown-subitem"><a href="/h5/weex/" class="nav-link">Weex</a></li></ul></li><li class="dropdown-item"><h4>Web Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/html/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/h5/css/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/h5/js/" class="nav-link">JS</a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/pan372728544" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Object-C</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/oc/runtime/" class="nav-link">Runtime</a></li><li class="dropdown-item"><!----> <a href="/oc/kvo/" class="nav-link">KVO</a></li><li class="dropdown-item"><!----> <a href="/oc/runloop/" class="nav-link">RunLoop</a></li><li class="dropdown-item"><!----> <a href="/oc/other/" class="nav-link router-link-active">Other</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/" class="nav-link">Swift4.2</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">C/C++</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/" class="nav-link">C/C++</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Multi-Platform</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Native Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/flutter/" class="nav-link">Flutter</a></li><li class="dropdown-subitem"><a href="/h5/swiftui/" class="nav-link">SwiftUI</a></li><li class="dropdown-subitem"><a href="/h5/reactnative/" class="nav-link">React-native</a></li><li class="dropdown-subitem"><a href="/h5/cordova/" class="nav-link">Cordova</a></li><li class="dropdown-subitem"><a href="/h5/weex/" class="nav-link">Weex</a></li></ul></li><li class="dropdown-item"><h4>Web Group</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/h5/html/" class="nav-link">HTML</a></li><li class="dropdown-subitem"><a href="/h5/css/" class="nav-link">CSS</a></li><li class="dropdown-subitem"><a href="/h5/js/" class="nav-link">JS</a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/pan372728544" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/oc/other/" class="sidebar-link">排序算法</a></li><li><a href="/oc/other/JLRouter.html" class="sidebar-link">JLRouter</a></li><li><a href="/oc/other/git.html" class="sidebar-link">Git使用</a></li><li><a href="/oc/other/aframework.html" class="sidebar-link">静态库</a></li><li><a href="/oc/other/copy.html" class="sidebar-link">深拷贝和浅拷贝</a></li><li><a href="/oc/other/Jenkins.html" class="active sidebar-link">Jenkins 在MAC上的配置使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/oc/other/Jenkins.html#安装jenkins" class="sidebar-link">安装Jenkins</a></li><li class="sidebar-sub-header"><a href="/oc/other/Jenkins.html#设置jenkins用户" class="sidebar-link">设置Jenkins用户</a></li><li class="sidebar-sub-header"><a href="/oc/other/Jenkins.html#初始化jenkins" class="sidebar-link">初始化Jenkins</a></li><li class="sidebar-sub-header"><a href="/oc/other/Jenkins.html#安装插件" class="sidebar-link">安装插件</a></li><li class="sidebar-sub-header"><a href="/oc/other/Jenkins.html#xcode以及开发证书设置" class="sidebar-link">Xcode以及开发证书设置</a></li><li class="sidebar-sub-header"><a href="/oc/other/Jenkins.html#配置构建项目" class="sidebar-link">配置构建项目</a></li></ul></li><li><a href="/oc/other/pod.html" class="sidebar-link">pod</a></li><li><a href="/oc/other/spec.html" class="sidebar-link">创建私有的Spec Repo</a></li><li><a href="/oc/other/package.html" class="sidebar-link">自动打包命令</a></li><li><a href="/oc/other/autoPackage.html" class="sidebar-link">MAC下使用Jekins自动打包iOS项目</a></li><li><a href="/oc/other/spec22.html" class="sidebar-link">创建私有库的索引</a></li><li><a href="/oc/other/time.html" class="sidebar-link">应用启用时间</a></li><li><a href="/oc/other/load.html" class="sidebar-link">load &amp; initialize</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="jenkins-在mac上的配置使用"><a href="#jenkins-在mac上的配置使用" aria-hidden="true" class="header-anchor">#</a> Jenkins 在MAC上的配置使用</h1> <p>因为网上教程多是依靠Github，而且很多是在Jenkins中配置Xcode参数，相当的麻烦，我们是用Shell 脚本，非常的easy。在这里记录下环境搭建的过程，希望能帮他人减少一点坑。</p> <h2 id="安装jenkins"><a href="#安装jenkins" aria-hidden="true" class="header-anchor">#</a> 安装Jenkins</h2> <p>Jenkins是基于Java开发的一种持续集成工具。所以呢，要使用Jenkins必须使用先安装JDK。</p> <h3 id="jdk安装"><a href="#jdk安装" aria-hidden="true" class="header-anchor">#</a> JDK安装</h3> <p>JDK <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener noreferrer">下载地址<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <img src="/img/jen/1.png" alt>
+安装JDK的过程略，别说你不会安装（如有不会安装的，自行百度）。</p> <h3 id="jenkins安装"><a href="#jenkins安装" aria-hidden="true" class="header-anchor">#</a> Jenkins安装</h3> <p>Jenkins <a href="http://jenkins-ci.org/" target="_blank" rel="noopener noreferrer">下载地址<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>安装过程如下：</p> <p><img src="/img/jen/2.png" alt> <img src="/img/jen/3.png" alt> <img src="/img/jen/4.png" alt> <img src="/img/jen/5.png" alt> <img src="/img/jen/6.png" alt> <img src="/img/jen/7.png" alt>
+也可以下载jenkins.war, 然后运行Java -jar jenkins.war，进行安装。</p> <p>安装完成之后，Safari可能会自动打开，如果没有自动打开，打开浏览器，输入http://localhost:8080
+<img src="/img/jen/8.png" alt>
+这个时候可能会报一个错误。如果出现了上面的问题，原因可能是Java环境有问题，重新安装JDK环境即可。</p> <p>正常的话，应该会看到下面这个重设初始密码的界面
+<img src="/img/jen/9.png" alt></p> <pre><code>注意： 
+1、Jenkins 安装成功后,会创建一个Jenkins用户，而Jenkins的工作区间默认是在【/用户/共享/Jenkins/Home/jobs】目录下，可以用Finder–&gt;前往，进入。 
+2、Jenkins目录下的文件夹的读写权限只对Jenkins用户开放，所以后面apple证书等必须在Jenkins用户下安装，项目的ipa导出也得在Jenkins用户下操作。（或者用管理员权限修改该目录针对用户的权限) 
+3、Jenkins的使用是每一个用户都可以使用，所以有可能导致构建版本的时候报错，还是老老实实在Jenkins用户下操作吧。
+</code></pre> <h2 id="设置jenkins用户"><a href="#设置jenkins用户" aria-hidden="true" class="header-anchor">#</a> 设置Jenkins用户</h2> <h3 id="进入-系统偏好设置-用户与群组"><a href="#进入-系统偏好设置-用户与群组" aria-hidden="true" class="header-anchor">#</a> 进入 系统偏好设置-&gt;用户与群组</h3> <h3 id="点击左下角的解锁，输入当前用户的密码"><a href="#点击左下角的解锁，输入当前用户的密码" aria-hidden="true" class="header-anchor">#</a> 点击左下角的解锁，输入当前用户的密码</h3> <h3 id="此时jenkins用户还是一个空的无名用户，可以在用户列表中选择jenkins用户，右击并选择“高级选项”，输入全名并确定。"><a href="#此时jenkins用户还是一个空的无名用户，可以在用户列表中选择jenkins用户，右击并选择“高级选项”，输入全名并确定。" aria-hidden="true" class="header-anchor">#</a> 此时Jenkins用户还是一个空的无名用户，可以在用户列表中选择Jenkins用户，右击并选择“高级选项”，输入全名并确定。</h3> <h3 id="点击“更改密码”重设jenkins用户的密码。为了后期方便，可勾选“运行用户管理这台电脑”，将jenkins用户设为管理员。"><a href="#点击“更改密码”重设jenkins用户的密码。为了后期方便，可勾选“运行用户管理这台电脑”，将jenkins用户设为管理员。" aria-hidden="true" class="header-anchor">#</a> 点击“更改密码”重设Jenkins用户的密码。为了后期方便，可勾选“运行用户管理这台电脑”，将Jenkins用户设为管理员。</h3> <h3 id="选择用户列表下方的登录选项，将自动登录用户设为jenkins。"><a href="#选择用户列表下方的登录选项，将自动登录用户设为jenkins。" aria-hidden="true" class="header-anchor">#</a> 选择用户列表下方的登录选项，将自动登录用户设为Jenkins。</h3> <h2 id="初始化jenkins"><a href="#初始化jenkins" aria-hidden="true" class="header-anchor">#</a> 初始化Jenkins</h2> <p>重启以后，自动以Jenkins登录了。找到/Users/Shared/Jenkins/Home/ 这个目录下，打开initialAdminPassword文件，复制出密码，就可以填到网页上去重置密码了。如下图</p> <p><img src="/img/jen/10.png" alt></p> <p><img src="/img/jen/11.png" alt> <img src="/img/jen/12.png" alt> <img src="/img/jen/13.png" alt> <img src="/img/jen/14.png" alt>
+一路安装过来，输入用户名，密码，邮件这些，就算安装完成了。</p> <h2 id="安装插件"><a href="#安装插件" aria-hidden="true" class="header-anchor">#</a> 安装插件</h2> <p>正常情况下，常用的插件都已经安装了，如果有插件安装失败或者需要特殊的插件，可以自行安装。
+<img src="/img/jen/15.png" alt> <img src="/img/jen/16.png" alt> <img src="/img/jen/17.png" alt> <img src="/img/jen/18.png" alt></p> <h2 id="xcode以及开发证书设置"><a href="#xcode以及开发证书设置" aria-hidden="true" class="header-anchor">#</a> Xcode以及开发证书设置</h2> <p>因为要使用Xcode命令，所以必须保证Xcode command Line已安装。</p> <p>###设置apple development 证书
+在原来Xcode开发所在用户下，导出发布证书，然后拷贝到Jenkins用户环境下，双击安装到Mac 的钥匙串中。
+<img src="/img/jen/19.png" alt></p> <pre><code>注意： 
+因为用户访问钥匙串中的证书需要权限，而用jenkins构建时，不管是用Xcode插件配置还是shell 脚本，都不能输入用户密码，所以必须设置证书的【访问控制】为允许所有应用程序访问此项目。
+
+### 安装mobileprovision描述文件 
+</code></pre> <p>同样需要在Jenkins用户下，安装好打包需要的手机描述文件。</p> <h2 id="配置构建项目"><a href="#配置构建项目" aria-hidden="true" class="header-anchor">#</a> 配置构建项目</h2> <p>下面讲解构建项目的配置，可以使用本地的项目，也可以使用SVN上的项目（只需要填入svn上工程地址即可），然后输入shell 脚本就可以开始构建了。</p> <h3 id="使用本地项目构建"><a href="#使用本地项目构建" aria-hidden="true" class="header-anchor">#</a> 使用本地项目构建</h3> <p>步骤如下：
+<img src="/img/jen/20.png" alt>
+点击OK，在【/用户/共享/Jenkins/Home/jobs】目录下会生成HelloJenkins的目录。
+<img src="/img/jen/21.png" alt> <img src="/img/jen/22.png" alt>
+其他的设置项，均不用设置，只需要设置下脚本即可，脚本详细的内容如下：</p> <pre><code># 工程名
+APP_NAME=&quot;HelloJenkins&quot;
+# 证书
+CODE_SIGN_DISTRIBUTION=&quot;iPhone Distribution: XXXXXXXXXXXX&quot;
+# info.plist路径
+project_infoplist_path=&quot;./${APP_NAME}/Info.plist&quot;
+
+#取版本号
+bundleShortVersion=$(/usr/libexec/PlistBuddy -c &quot;print CFBundleShortVersionString&quot; &quot;${project_infoplist_path}&quot;)
+
+#取build值
+bundleVersion=$(/usr/libexec/PlistBuddy -c &quot;print CFBundleVersion&quot; &quot;${project_infoplist_path}&quot;)
+
+DATE=&quot;$(date +%Y%m%d)&quot;
+IPANAME=&quot;${APP_NAME}_V${bundleShortVersion}_${DATE}.ipa&quot;
+
+echo &quot;=================clean=================&quot;
+xcodebuild -target &quot;${APP_NAME}&quot;  -configuration 'Release' clean
+
+echo &quot;+++++++++++++++++build+++++++++++++++++&quot;
+xcodebuild -target &quot;${APP_NAME}&quot; -sdk iphoneos -configuration 'Release' CODE_SIGN_IDENTITY=&quot;${CODE_SIGN_DISTRIBUTION}&quot; SYMROOT='$(PWD)'
+
+xcrun -sdk iphoneos PackageApplication &quot;./Release-iphoneos/${APP_NAME}.app&quot; -o ~/&quot;${IPANAME}&quot;
+
+
+注意1：【-o ~/$IPANAME】表示导出的ipa文件在当前用户的目录下，即【/用户/共享/Jenkins/】下。 
+其中CODE_SIGN_IDENTITY=”iPhone Distribution: 
+xxxxxxxxxx”是你打包使用的证书在钥匙串中的常用名称。 
+导出的ipa，叫【HelloJenkins_V1.2_20160118.ipa】。
+注意2：如果如上图【配置项目第二步】那样，在xcodeproj相同目录下，新建一个sh脚本文件，用【sh 
+xxx.sh】命令的话，见6.3介绍。 如果你的项目中用到了cocoapods,那脚本有几个参数需要调整一下，详情见下文。
+注意3（2016.02.17更新）：CODE_SIGN_IDENTITY 
+这个属性可以不设置，直接设置profile就可以了，编译时会自动去匹配对应的CODE_SIGN_IDENTITY，需要注意的是设置profile时，设置的是其UUID值。例如【PROVISIONING_PROFILE=’f035763e-e847-4db8-ac10-0004809fdc90’】
+</code></pre> <p>点击保存，然后点击左侧菜单，立即构建，即可开始构建。</p> <p><img src="/img/jen/23.png" alt></p> <h3 id="使用svn地址构建"><a href="#使用svn地址构建" aria-hidden="true" class="header-anchor">#</a> 使用svn地址构建</h3> <p>第一步，新建项目，与上面的一样。
+第二步，不用将工程拷贝到jobs目录下了，直接在配置里源码管理那一栏设置svn地址</p> <p><img src="/img/jen/24.png" alt>
+第三步，设置shell 脚本，与上面的一样。
+第四步，立即构建即可。</p> <h3 id="如何使用【sh-jenkins-sh】"><a href="#如何使用【sh-jenkins-sh】" aria-hidden="true" class="header-anchor">#</a> 如何使用【sh jenkins.sh】</h3> <p>将打包脚本写在jenkins.sh文件中，并将此文件放在project根目录，Jenkins中按下图修改。
+<img src="/img/jen/25.png" alt></p> <h3 id="使用cocoapods的项目脚本如何改"><a href="#使用cocoapods的项目脚本如何改" aria-hidden="true" class="header-anchor">#</a> 使用cocoapods的项目脚本如何改</h3> <p>使用cocoapods后，因为启动项目的工程文件已经由【xxx.xcodeproj】变为【xxx.xcworkspace】,所以在build时，需要添加【-workspace】和【-scheme】，同时去掉【-target】,如果不修改这些参数，构建会报错也会提示设置这些项。</p> <pre><code># 工程名
+APP_NAME=&quot;HelloJenkins&quot;
+# 证书
+CODE_SIGN_DISTRIBUTION=&quot;iPhone Distribution: SunEee Weilian Technology Development Co., Ltd.&quot;
+# info.plist路径
+project_infoplist_path=&quot;./${APP_NAME}/Info.plist&quot;
+
+#取版本号
+bundleShortVersion=$(/usr/libexec/PlistBuddy -c &quot;print CFBundleShortVersionString&quot; &quot;${project_infoplist_path}&quot;)
+
+#取build值
+bundleVersion=$(/usr/libexec/PlistBuddy -c &quot;print CFBundleVersion&quot; &quot;${project_infoplist_path}&quot;)
+
+DATE=&quot;$(date +%Y%m%d)&quot;
+IPANAME=&quot;${APP_NAME}_V${bundleShortVersion}_${DATE}.ipa&quot;
+
+#要上传的ipa文件路径
+IPA_PATH=&quot;$HOME/${IPANAME}&quot;
+echo ${IPA_PATH}
+echo &quot;${IPA_PATH}&quot;&gt;&gt; text.txt
+
+echo &quot;=================clean=================&quot;
+xcodebuild -workspace &quot;${APP_NAME}.xcworkspace&quot; -scheme &quot;${APP_NAME}&quot;  -configuration 'Release' clean
+
+echo &quot;+++++++++++++++++build+++++++++++++++++&quot;
+xcodebuild -workspace &quot;${APP_NAME}.xcworkspace&quot; -scheme &quot;${APP_NAME}&quot; -sdk iphoneos -configuration 'Release' CODE_SIGN_IDENTITY=&quot;${CODE_SIGN_DISTRIBUTION}&quot; SYMROOT='$(PWD)'
+
+xcrun -sdk iphoneos PackageApplication &quot;./Release-iphoneos/${APP_NAME}.app&quot; -o ~/&quot;${IPANAME}&quot;
+</code></pre> <h3 id="添加构建后自动上传蒲公英的脚本"><a href="#添加构建后自动上传蒲公英的脚本" aria-hidden="true" class="header-anchor">#</a> 添加构建后自动上传蒲公英的脚本</h3> <p><img src="/img/jen/26.png" alt> <img src="/img/jen/27.png" alt>
+upload.sh脚本与上面jenkins.sh脚本在同一目录。
+【upload.sh】内容如下：</p> <pre><code>#蒲公英上的User Key
+uKey=&quot;9743f8cbe9ebef9863912a9d52ac19ce&quot;
+#蒲公英上的API Key
+apiKey=&quot;0419615fa1ebbe8179ee9978abc3d753&quot;
+#要上传的ipa文件路径
+IPA_PATH=$(cat text.txt)
+
+rm -rf text.txt
+
+#执行上传至蒲公英的命令
+echo &quot;++++++++++++++upload+++++++++++++&quot;
+curl -F &quot;file=@${IPA_PATH}&quot; -F &quot;uKey=${uKey}&quot; -F &quot;_api_key=${apiKey}&quot; http://www.pgyer.com/apiv1/app/upload
+
+注意：脚本中的uKey和apiKey，是自己的账户对应的userKey和apiKey。
+</code></pre> <p>上传成功后，会返回相应的json数据。失败提示，可以参考蒲公英官网说明。</p> <p><img src="/img/jen/28.png" alt></p> <h3 id="没有scheme，导致无法打包"><a href="#没有scheme，导致无法打包" aria-hidden="true" class="header-anchor">#</a> 没有Scheme，导致无法打包</h3> <p>有时候会遇到项目代码拉下来后，执行打包脚本会卡在xcodebuild命令下，通过xcodebuild -list命令查看：如图显示no schems.
+<img src="/img/jen/29.png" alt>
+原因是本机生成的scheme，在另一台Mac下不可用。又由于我们一般上传SVN或git的时候会把xcuserdata文件删除，这样就找不到scheme了，而用Xcode打开一次工程之后就可以成功执行了，也就是生成了xcuserdata文件。
+具体解决看图：将图上按钮全部勾选，然后xcworkspace中会生成xcshareddata文件，好，我们需要的正是该文件，注意将该文件附带工程中上传至SVN或git，那样在其他电脑上都可执行成功了！
+<img src="/img/jen/30.png" alt></p> <pre><code>注意：其实不需要将所有Scheme都共享，只需共享打包脚本会用到的Scheme即可。
+</code></pre> <h3 id="命令行调用code-sign时报错：user-interaction-is-not-allowed"><a href="#命令行调用code-sign时报错：user-interaction-is-not-allowed" aria-hidden="true" class="header-anchor">#</a> 命令行调用code sign时报错：User interaction is not allowed</h3> <p>虽然5.1设置了证书所有应用可用，但是还是可能会遇到User interaction is not allowed，这是因为Jenkins使用的是一个独立的用户环境。解决方法是在你的打包脚本的签名前加上</p> <pre><code>security unlock-keychain  -p &quot;你的用户密码&quot; ~/Library/Keychains/login.keychain
+1
+</code></pre> <p>构建成功之后，这句就可以删掉了，只需运行一次。
+如果还是出错，可以使用
+security show-keychain-info ~/Library/Keychains/login.keychain
+查看一下具体情况，有可能提示
+Keychain &quot;/Users/Shared/Jenkins/Library/Keychains/login.keychain&quot; lock-on-sleep timeout=300s，
+即只有5分钟有效。可以将时间设置长一点来解决
+security set-keychain-settings -t 3600 -l ~/Library/Keychains/login.keychain</p> <h3 id="python-字符编码问题"><a href="#python-字符编码问题" aria-hidden="true" class="header-anchor">#</a> Python 字符编码问题</h3> <p>如果使用到了Python脚本，可能会遇到“UnicodeEncodeError: ‘ascii’ codec can’t encode characters ”的错误，可以在Python文件的开头加上</p> <pre><code>import sys 
+reload(sys) 
+sys.setdefaultencoding('utf-8') 
+</code></pre> <p>参考文献：
+<a href="http://www.jianshu.com/p/c0955ff67c91" target="_blank" rel="noopener noreferrer">Mac下Jenkins+SVN+Xcode构建持续导出环境<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://www.jianshu.com/p/45c3fbc6924a" target="_blank" rel="noopener noreferrer">Mac下Jenkins构建+蒲公英分发<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://www.cimgf.com/2015/05/26/setting-up-jenkins-ci-on-a-mac-2/" target="_blank" rel="noopener noreferrer">SETTING UP JENKINS CI ON A MAC<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://www.cocoachina.com/ios/20160804/17281.html" target="_blank" rel="noopener noreferrer">手把手教你利用Jenkins持续集成iOS项目<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://blog.csdn.net/liqinghai2015/article/details/49469263" target="_blank" rel="noopener noreferrer">基于xcodebuild和xcrun的自动化打包<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://www.egeek.me/2013/02/23/jenkins-and-xcode-user-interaction-is-not-allowed/" target="_blank" rel="noopener noreferrer">Jenkins and Xcode: “User Interaction Is Not Allowed”<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://www.iteye.com/topic/699510" target="_blank" rel="noopener noreferrer">python UnicodeEncodeError: ‘ascii’ codec can’t encode characters 解决方法<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <a href="http://www.cnblogs.com/linjiqin/p/3674825.html" target="_blank" rel="noopener noreferrer">Python字符串的编码与解码(encode与decode)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">1/2/2019, 6:09:18 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/oc/other/copy.html" class="prev">
+          深拷贝和浅拷贝
+        </a></span> <span class="next"><a href="/oc/other/pod.html">
+          pod
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.908dfad3.js" defer></script><script src="/assets/js/48.ec325e20.js" defer></script>
+  </body>
+</html>
